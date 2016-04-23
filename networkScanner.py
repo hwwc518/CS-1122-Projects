@@ -92,13 +92,17 @@ else:
  
 open_ports = []
 common_ports = {
- 
+    '7': 'Echo',
+    '19': 'Chargen',
     '21': 'FTP',
     '22': 'SSH',
     '23': 'TELNET',
     '25': 'SMTP',
+    '43': 'WHOIS',
     '53': 'DNS',
     '69': 'TFTP',
+    '70': 'Gopher',
+    '79': 'Finger',
     '80': 'HTTP',
     '109': 'POP2',
     '110': 'POP3',
@@ -110,8 +114,12 @@ common_ports = {
     '156': 'SQL-SERVER',
     '389': 'LDAP',
     '443': 'HTTPS',
+    '514': 'syslog',
     '546': 'DHCP-CLIENT',
     '547': 'DHCP-SERVER',
+    '631': 'Internet Printing',
+    '902': 'VMware Server',
+    '989': 'FTP',
     '995': 'POP3-SSL',
     '993': 'IMAP-SSL',
     '2086': 'WHM/CPANEL',
