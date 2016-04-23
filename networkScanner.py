@@ -1,3 +1,5 @@
+#===============================First Program==============================
+
 # import socket
 # import os
 # import nmap
@@ -26,6 +28,7 @@
 # '''
 # print(get_nmap('F', '192.168.0.20'))
 
+#=========================SECOND PROGRAM-Find open ports=======================================
 
 # import nmap                         # import nmap.py module
 
@@ -61,6 +64,7 @@
 # Licence: Do whatever you want with it, modify, redistribute, publish in your blog, or whatever
 # If you could provide a link back to this article, that would be great though
  
+#====================Find and guess open ports=============================
  
 import socket,sys,time,datetime,argparse,os
 flag = 0
