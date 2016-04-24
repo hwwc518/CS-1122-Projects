@@ -68,7 +68,12 @@
  
 import socket,sys,time,datetime,argparse,os
 flag = 0
-os.system('clear')
+#os.system('clear')
+
+print "Computers on the same subnet:"
+print [ip for ip in socket.gethostbyname_ex(socket.gethostname())[2] if not ip.startswith("127.")][:1]
+print ('')
+
 line = "+" * 80
 desc = line+'''\nA Simple port scanner that works!! (c) digitz.org
     Example usage: python port_scanner.py example.com 1 1000
@@ -217,6 +222,6 @@ try:
         print "Sorry, No open ports found.!!"
  
 except KeyboardInterrupt:
-    print "You pressed Ctrl+C. Exiting "        
+    print "You pressed Ctrl+C. Exiting "   
     sys.exit(1)
 #     print('----------------------------------------------------')
