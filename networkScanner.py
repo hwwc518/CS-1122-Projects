@@ -68,32 +68,40 @@
  
 import socket,sys,time,datetime,argparse,os
 flag = 0
-#os.system('clear')
+os.system('clear')
 
 print "Computers on the same subnet:"
 print [ip for ip in socket.gethostbyname_ex(socket.gethostname())[2] if not ip.startswith("127.")][:1]
 print ('')
 
-line = "+" * 80
-desc = line+'''\nA Simple port scanner that works!! (c) digitz.org
-    Example usage: python port_scanner.py example.com 1 1000
-    The above example will scan the host \'example.com\' from port 1 to 1000
-    To scan most common ports, use: python port_scanner.py example.com\n'''+line+"\n"
+# line = "+" * 80
+# desc = line+'''\nA Simple port scanner that works!! (c) digitz.org
+#     Example usage: python port_scanner.py example.com 1 1000
+#     The above example will scan the host \'example.com\' from port 1 to 1000
+#     To scan most common ports, use: python port_scanner.py example.com\n'''+line+"\n"
  
-parser = argparse.ArgumentParser(description = desc, formatter_class=argparse.RawTextHelpFormatter)
-parser.add_argument('host', metavar='H', help='Host name you want to scan')
-parser.add_argument('startport', metavar='P1', nargs='?', help='Start scanning from this port')
-parser.add_argument('endport', metavar='P2', nargs='?',help='Scan until this port')
-args = parser.parse_args()
+# parser = argparse.ArgumentParser(description = desc, formatter_class=argparse.RawTextHelpFormatter)
+# parser.add_argument('host', metavar='H', help='Host name you want to scan')
+# parser.add_argument('startport', metavar='P1', nargs='?', help='Start scanning from this port')
+# parser.add_argument('endport', metavar='P2', nargs='?',help='Scan until this port')
+# args = parser.parse_args()
  
-host = args.host
-ip = socket.gethostbyname(host)
- 
-if (args.startport) and args.endport :
-    start_port = int(args.startport)
-    end_port = int(args.endport)
-else:
-    flag = 1
+# host = args.host
+# ip = socket.gethostbyname(host)
+
+host = '127.0.0.1'
+ip = '127.0.0.1'
+start_port = 1
+end_port = 1000
+
+print("the host: ", host, ' ip: ', ip)
+
+
+# if (args.startport) and args.endport :
+#     start_port = int(args.startport)
+#     end_port = int(args.endport)
+# else:
+#     flag = 1
  
 open_ports = []
 common_ports = {
@@ -112,7 +120,8 @@ common_ports = {
     '109': 'POP2',
     '110': 'POP3',
     '123': 'NTP',
-    '135': 'Microsoft RPC',
+    '135': 'Microsoft RPC'
+,
     '137': 'NETBIOS-NS',
     '138': 'NETBIOS-DGM',
     '139': 'NETBIOS-SSN',
@@ -122,9 +131,11 @@ common_ports = {
     '389': 'LDAP',
     '443': 'HTTPS',
     '445': 'Microsoft DS',
-    '513': 'rlogin',
+    '513': 'rlogin',
+
     '514': 'syslog',
-    '540': 'UUCP',
+    '540': 'UUCP',
+
     '546': 'DHCP-CLIENT',
     '547': 'DHCP-SERVER',
     '631': 'Internet Printing',
