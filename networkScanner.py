@@ -72,7 +72,9 @@ os.system('clear')
 
 print "Computers on the same subnet:"
 print [ip for ip in socket.gethostbyname_ex(socket.gethostname())[2] if not ip.startswith("127.")][:1]
-print ('')
+# arrayIP = []
+# arrayIP.append(ip)
+# print ('')
 
 # line = "+" * 80
 # desc = line+'''\nA Simple port scanner that works!! (c) digitz.org
@@ -89,8 +91,8 @@ print ('')
 # host = args.host
 # ip = socket.gethostbyname(host)
 
-host = '127.0.0.1'
-ip = '127.0.0.1'
+host = '172.16.21.39'
+ip = '172.16.21.39'
 start_port = 1
 end_port = 1000
 
