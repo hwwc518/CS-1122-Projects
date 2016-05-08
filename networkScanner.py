@@ -91,8 +91,8 @@ print [ip for ip in socket.gethostbyname_ex(socket.gethostname())[2] if not ip.s
 # host = args.host
 # ip = socket.gethostbyname(host)
 
-host = '128.238.66.0'
-ip = '128.238.66.0'
+host = '127.0.0.1'
+ip = '127.0.0.1'
 start_port = 1
 end_port = 1000
 
